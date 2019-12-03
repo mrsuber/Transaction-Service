@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+
+  flask:
+    build: ./flask
+    container_name: Transaction_Service
+    restart: always
+    environment:
+      - APP_NAME=MyFlaskApp
+    expose:
+      - 8080
+  nginx:
+    build: ./nginx
+    container_name: Transaction_Service_nginx
+    restart: always
+    ports:
+      - "80:80"
